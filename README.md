@@ -1,71 +1,53 @@
-# Halloween Fashion Spectacular
+# 🎃 Neverwinter Halloween Fashion Spectacular
 
-A single-page digital flyer for the **Wanted Alliance Costume Contest**, presented by Synergy. Built for the Neverwinter community, it works as a shareable link with a live countdown to the finale.
+> A responsive, dark-fantasy landing page and automated countdown for the **Wanted Alliance Costume Contest**, presented by **Synergy**.
 
-**Live page:** _add your hosted URL here_
+Live finale streaming on [Twitch](https://www.twitch.tv/thenolanian) — **Saturday, October 24th at 8:00 PM Eastern**.
 
-## Event details
+---
 
-- **Event:** Halloween Fashion Spectacular (Wanted Alliance Costume Contest)
-- **Prizes:** 50 Million Astral Diamonds split between 5 winners, plus the "Frightfully Fashionable" title
-- **Sign-ups close:** October 10th
-- **Qualifying round:** October 17th, 8:00 PM Eastern, at each guild Stronghold
-- **Live finale:** Saturday, October 24th, 8:00 PM Eastern
-- **Watch live:** [twitch.tv/thenolanian](https://www.twitch.tv/thenolanian)
-- **Hosts:** Nolanian & Ivydora
+## ✨ Key Features
 
-## Features
+* ⏳ **Real-Time Countdown:** Dynamic timer counting down to the live finale stream, with automatic phase switching when the stream goes live or finishes.
+* 🌍 **Local Time Zone Auto-Conversion:** Uses native browser localization (`Intl.DateTimeFormat`) to translate Eastern Time into the exact local time zone of whoever opens the page.
+* 🏆 **Prize & Event Showcase:** Clean visual cards highlighting the **50 Million Astral Diamond** prize pool, the exclusive **Frightfully Fashionable** title, and viewer choice giveaways.
+* 📅 **Automated Event Timeline:** A 3-step sequence covering Sign-ups, Qualifying Round (Oct 17), and the Live Finale (Oct 24). Completed steps automatically visually dim once their date passes.
+* 🚀 **Zero Maintenance:** Built as a standalone vanilla HTML/CSS/JS file. No external dependencies, build tools, or server-side scripts required.
 
-- Countdown timer to the live finale, with "live now" and "ended" states
-- Finale time shown in the visitor's own time zone
-- "Add to Google Calendar" button
-- Sign-up line that shows days remaining, then switches to "closed"
-- Timeline steps that dim automatically once they've passed
-- Responsive layout for phones and desktops
-- Original flyer included at the bottom of the page
+---
 
-## Files
+## 🛠️ Tech Stack
 
-| File | Description |
-| --- | --- |
-| `index.html` | The entire site: HTML, CSS, JavaScript and embedded images |
+* **HTML5** (Semantic structure, accessibility markup)
+* **CSS3** (Custom properties, flexbox/grid layout, responsive design)
+* **Vanilla JavaScript** (Countdown logic, local time formatting, step-status tracking)
+* **Google Fonts** (*Cinzel*, *Cinzel Decorative*, *Cormorant Garamond*, *Cormorant SC*)
 
-The page is fully self-contained. The only external resource is Google Fonts, and the page falls back to Georgia if the fonts don't load.
+---
 
-> If your file is named `halloween-fashion-spectacular.html`, rename it to `index.html` so GitHub Pages serves it at the root URL.
+## 🚀 Quick Start / Deployment
 
-## Hosting on GitHub Pages
+Since this project consists of a single static HTML document, it requires zero build steps and can be hosted instantly.
 
-1. Push `index.html` to your repository.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select your main branch and the `/ (root)` folder, then save.
-5. After a minute or two, your site will be live at `https://<your-username>.github.io/<repo-name>/`.
+### Local Preview
+1. Clone or download this repository.
+2. Open `index.html` directly in any modern Web Browser.
 
-You can also upload the file to any static host, such as TinyHost, Netlify or Cloudflare Pages.
+### Hosting on GitHub Pages
+1. Go to your repository settings on GitHub.
+2. Navigate to **Pages** in the side menu.
+3. Set the source branch to `main` (or `master`) and folder to `/ (root)`.
+4. Save — your page will be live in under a minute!
 
-## Customizing
+---
 
-Open `index.html` in a text editor.
+## ⚙️ Configuration & Customization
 
-- **Event date and time:** find the `target` line near the bottom of the `<script>` block. Dates use ISO format with the Eastern offset (`-04:00` during daylight time, `-05:00` after November 1st).
-- **Sign-up deadline:** edit the `signupClose` line in the same script.
-- **Text and links:** edit the HTML directly. Search for the text you want to change.
-- **Colors:** the palette is defined as CSS variables at the top of the `<style>` block (`--gold`, `--pumpkin`, `--night`, and so on).
+All event dates and stream links are centralized at the bottom of `index.html` inside the `<script>` block:
 
-## Link previews (optional)
+```javascript
+// Finale Date & Stream Window
+var target = new Date("2026-10-24T20:00:00-04:00").getTime();
 
-To get a preview card when you share the link in Discord or social media, add these tags inside `<head>` once you know your hosted URL:
-
-```html
-<meta property="og:title" content="Halloween Fashion Spectacular">
-<meta property="og:description" content="Wanted Alliance Costume Contest. 50 Million Astral Diamonds and the Frightfully Fashionable title. Live on Twitch October 24th at 8:00 PM Eastern.">
-<meta property="og:image" content="https://your-site-url/flyer.jpg">
-<meta property="og:type" content="website">
-```
-
-The image must be a separate file hosted at a public URL, so save the flyer as `flyer.jpg` in your repository and point to it.
-
-## Credits
-
-Event presented by Synergy and hosted by Nolanian & Ivydora. Neverwinter and its artwork are trademarks of their respective owners. This is a fan-run community event and is not affiliated with or endorsed by them.
+// Sign-up Deadline (End of Oct 10 Eastern)
+var signupClose = new Date("2026-10-11T00:00:00-04:00").getTime();
